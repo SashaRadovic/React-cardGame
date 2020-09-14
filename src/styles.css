@@ -1,0 +1,19 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  border: 1px solid grey;
+  width: 70px;
+  margin: 10px;
+}
+.topLeft {
+  position: relative;
+  top: -15px;
+  left: -20px;
+}
+
+.bottomRight {
+  position: relative;
+  top: 15px;
+  left: 20px;
+  transform: rotate(180deg);
+}
