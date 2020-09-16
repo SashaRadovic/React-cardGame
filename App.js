@@ -18,14 +18,17 @@ export default function Element() {
   const signOnCardIndex = Math.floor(Math.random() * 3 + 1);
   const [numberBox, setNumberBox] = React.useState([]);
   const [numberBoxHold, setNumberBoxHold] = React.useState([]);
-
+ const cardsSources= [['1k.png', '1t.png'], ['12k.png', '2t.png'], ['3k.png', '3t.png'], ['4k.png', '4t.png'], ['5k.png', '5t.png'], ['6k.png', '6t.png'], ['7k.png', '7t.png'], ['8k.png', '8t.png'], ['9k.png', '9t.png'], ['10k.png', '10t.png'], ['11k.png', '11t.png'], ['12k.png', '12t.png'], ['13k.png', '13t.png'], ['14.png', '14.png']]
   const handleCreateDiv = () => {
     yourScore += numberOnCard;
+    const numberOnCardIndex =Math.floor(Math.random() * 1)
+    console.log(numberOnCardIndex)
     setNumberBox(
       numberBox.concat(
         <Card
           name={numberOnCard}
           sign={signs[signOnCardIndex]}
+         src={cardsSources[numberOnCard-1][numberOnCardIndex]}
           key={numberBox.length}
         />
       )
@@ -36,6 +39,8 @@ export default function Element() {
   };
   const handleCreateDivHold = () => {
     const numberOnCard = Math.floor(Math.random() * 13 + 1);
+    const numberOnCardIndex =Math.round(Math.random() )
+    console.log(numberOnCardIndex)
     compScore += numberOnCard;
 
     //setNumberBoxHold(numberBoxHold => [...numberBoxHold, <Card name={numberOnCard} key={Math.floor(Math.random()*1000)} />])
@@ -43,6 +48,7 @@ export default function Element() {
       <Card
         name={numberOnCard}
         sign={signs[signOnCardIndex]}
+        src={cardsSources[numberOnCard-1][numberOnCardIndex]}
         key={Math.floor(Math.random() * 1000)}
       />
     );
@@ -70,14 +76,14 @@ export default function Element() {
         </button>
         <button onClick={newGame}>New Game</button>
       </div>
-      <div>
+      <div id='playerScore'>
         <div>
           {numberBox}
           Your Score: {yourScore}
         </div>
         <div id="youwinDiv">{youWin}</div>
       </div>
-      <div>
+      <div id='compScore'>
         <div>
           {numberBoxHold}
           Comp Score: {compScore}
