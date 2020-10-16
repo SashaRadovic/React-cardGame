@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.css";
+import "./src/styles.css";
 import Card from "./src/Card";
 
 let yourScore = 0;
